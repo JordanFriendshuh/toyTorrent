@@ -1,0 +1,25 @@
+import java.io.BufferedReader;
+import java.net.InetAddress;
+import java.net.Socket;
+import java.util.List;
+
+
+public class serverTalk extends Thread{
+	private Socket mainSocket;
+	private List<Peer> peers;
+	public serverTalk(String IP, int portIn, List<Peer> inPeers){
+		try{
+			InetAddress ipAddress = InetAddress.getByName(IP);
+			mainSocket = new Socket(ipAddress, portIn);
+			peers = inPeers;
+		}catch(Exception e){
+			
+		}
+	}
+	public void run(){
+		BufferedReader serverInput;
+		try{
+			serverInput = new BufferedReader(new InputStreamReader(mainSocket.getInputStream()));
+		}
+	}
+}

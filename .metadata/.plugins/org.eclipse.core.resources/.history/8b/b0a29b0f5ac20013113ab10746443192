@@ -1,0 +1,43 @@
+import java.io.IOException;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+
+public class topLevel {
+
+	/**
+	 * @param args
+	 */
+	int clientAddPort = 9001;
+	int clientNormPort = 9999;
+	private static List<Peer> peers;
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		peers = Collections.synchronizedList(new ArrayList<Peer>(100));
+		
+	}
+	private void acceptRequests(){
+		ServerSocket welcomeSocket;
+		try {
+			welcomeSocket = new ServerSocket(clientAddPort);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return;
+		}
+		while(true){
+			Socket connection;
+			try {
+				connection = welcomeSocket.accept();
+				peers.add(new Peer(-1, connection.getInetAddress()));
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+	}
+
+}

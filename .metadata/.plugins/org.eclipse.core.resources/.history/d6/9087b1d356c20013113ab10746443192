@@ -1,0 +1,17 @@
+import java.util.ArrayList;
+import java.util.List;
+
+
+public class topLevel {
+
+	/**
+	 * @param args
+	 */
+	private static ArrayList<Peer> peers;
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		peers = new Collections.synchronizedList(ArrayList<Peer>);
+		
+	}
+
+}

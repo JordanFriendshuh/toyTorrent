@@ -1,0 +1,26 @@
+import java.net.InetAddress;
+import java.net.Socket;
+
+
+public class Peer {
+	private int speedValue;
+	private InetAddress ipAddress;
+	Socket mainSocket;
+	public Peer(int speed, InetAddress ip, Socket sock){
+		speedValue = speed;
+		ipAddress = ip;
+		mainSocket = sock;
+	}
+	public int getSpeed(){
+		return speedValue;
+	}
+	public InetAddress getAddress(){
+		return ipAddress;
+	}
+	public void setSpeed(int speed){
+		speedValue = speed;
+	}
+	public Socket getSocket(){
+		return mainSocket;
+	}
+}

@@ -1,0 +1,11 @@
+import java.net.InetAddress;
+
+
+public class Peer {
+	int speedValue;
+	InetAddress ipAddress;
+	public Peer(int speed, InetAddress ip){
+		speedValue = speed;
+		ipAddress = ip;
+	}
+}

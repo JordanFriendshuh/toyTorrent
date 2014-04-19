@@ -1,0 +1,15 @@
+import java.util.ArrayList;
+
+
+public class topLevel {
+
+	/**
+	 * @param args
+	 */
+	ArrayList<peer> peers;
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		peers = new ArrayList<peer>();
+	}
+
+}
