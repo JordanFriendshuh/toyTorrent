@@ -1,0 +1,7 @@
+
+public class clientTalk extends Thread{
+
+	public clientTalk(InetAddress IP, int port){
+		
+	}
+}

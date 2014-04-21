@@ -1,0 +1,6 @@
+
+public class ClinetRecieve extends Thread{
+
+	private boolean finish;
+	private List<Interger> data;
+}
