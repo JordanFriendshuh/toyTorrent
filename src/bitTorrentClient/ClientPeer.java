@@ -3,7 +3,7 @@ import java.util.*;
 
 public class ClientPeer extends Peer {
 	private List<Peer> top4Peers;
-	private int[] currFile;
+	private ArrayList<Integer> currFile;
 	private int thisPeerSpeed;
 	private InetAddress thisPeerAddr;
 
@@ -12,9 +12,7 @@ public class ClientPeer extends Peer {
 		thisPeerSpeed = p.getSpeed();
 		thisPeerAddr = p.getAddress();
 		top4Peers = new ArrayList<Peer>();
-		currFile = new int[10000];
-		for (int i = 0; i < currFile.length; i++)
-			currFile[i] = -1;
+		currFile = (ArrayList<Integer>) Collections.synchronizedList(new ArrayList<Integer>());
 	}
 
 	public void setTop4Peers(List<Peer> allPeers) {
@@ -55,11 +53,6 @@ public class ClientPeer extends Peer {
 	}
 
 	public ArrayList<Integer> getFileIndicesAlreadyDLed() {
-		ArrayList<Integer> fileIndicesDLed = new ArrayList<Integer>();
-		for (int i = 0; i < currFile.length; i++) {
-			if (currFile[i] != -1)
-				fileIndicesDLed.add(i);
-		}
-		return fileIndicesDLed;
+		return currFile; 
 	}
 }
