@@ -1,0 +1,30 @@
+import java.net.InetAddress;
+import java.net.ServerSocket;
+import java.net.Socket;
+import java.util.List;
+
+
+public class ClinetRecieve extends Thread{
+
+	private boolean finish;
+	int port;
+	private List<Integer> data;
+	ServerSocket mainSocket;
+	public ClinetRecieve(int port){
+		finish = false;
+		this.port = port;
+	}
+	public void reset(InetAddress IPin){
+		finish = true;
+	}
+	public void run(){
+		while(true){
+			try{
+				mainSocket = new ServerSocket(port);
+			}catch(Exception e){	
+			}
+			while(!finish){
+
+			}
+	}
+}

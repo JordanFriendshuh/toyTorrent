@@ -1,0 +1,13 @@
+import java.net.InetAddress;
+
+
+public class clientTalk extends Thread{
+	private int data[];
+	private int port;
+	private InetAddress IP;
+	public clientTalk(InetAddress inIP, int inPort, int inData[]){
+		port = inPort;
+		IP = inIP;
+		data = inData;
+	}
+}

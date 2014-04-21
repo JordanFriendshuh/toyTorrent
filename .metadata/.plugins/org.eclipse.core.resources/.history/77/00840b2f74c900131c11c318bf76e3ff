@@ -1,0 +1,16 @@
+import java.net.Socket;
+import java.util.List;
+
+
+public class ClinetRecieve extends Thread{
+
+	private boolean finish;
+	private List<Integer> data;
+	Socket mainSocket;
+	public ClinetRecieve(){
+		finish = false;
+	}
+	public void reset(InetAddress IPin){
+		
+	}
+}
