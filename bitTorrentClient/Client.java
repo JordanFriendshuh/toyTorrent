@@ -1,4 +1,4 @@
-package bitTorrentClient;
+//package bitTorrentClient;
 import java.net.InetAddress;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -16,6 +16,7 @@ public class Client {
 	private static List<Peer> otherPeers;
 	private static List<Integer> data;
 	private static List<ClinetRecieve> recivers;
+	private static List<ClientTransmit> transmiters;
 	private static int count;
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -29,6 +30,12 @@ public class Client {
 		servCon.start();
 		recivers.add(new ClinetRecieve(Integer.parseInt(args[2]), myPeer));
 		recivers.add(new ClinetRecieve(Integer.parseInt(args[2]), myPeer));
+		transmiters.add(new ClientTransmit(Integer.parseInt(args[2]), myPeer));
+		transmiters.add(new ClientTransmit(Integer.parseInt(args[2]), myPeer));
+		for(int i = 0; i < 2; i++){
+			recivers.get(i).run();
+			transmiters.get(i).run();
+		}
 		Timer resend = new Timer();
 		resend.schedule(new TimerTask(){
 			public void run(){
@@ -44,7 +51,9 @@ public class Client {
 		for(ClinetRecieve n : recivers){
 			n.reset();
 		}
-		
+		for(int i = 0; i < transmiters.size(); i++){
+			transmiters.get(i).reset(myPeers.get(i).getAddress());
+		}
 	}
 	
 }
