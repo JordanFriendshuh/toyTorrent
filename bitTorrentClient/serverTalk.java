@@ -1,3 +1,5 @@
+package bitTorrentClient;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -11,20 +13,27 @@ public class serverTalk extends Thread{
 	private List<Peer> peers;
 	private ClientPeer myPeer;
 	public serverTalk(String IP, int portIn, List<Peer> inPeers, ClientPeer inPeer){
+		InetAddress ipAddress = null;
 		try{
-			InetAddress ipAddress = InetAddress.getByName(IP);
+			ipAddress = InetAddress.getByName(IP);
+		}catch(Exception e){
+			System.out.print("FUCKING INET FUCKING SUCKS\n");
+		}
+		try{
 			mainSocket = new Socket(ipAddress, portIn);
 			peers = inPeers;
 			myPeer = inPeer;
+			System.out.print(mainSocket);
 		}catch(Exception e){
-			
+			System.out.print(e);
 		}
+		
 	}
 	public void run(){
 		BufferedReader serverInput;
 		try {
 			serverInput = new BufferedReader(new InputStreamReader(mainSocket.getInputStream()));
-		} catch (IOException e) {
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 			return;

@@ -1,7 +1,7 @@
+package bitTorrentServer;
+
 import java.io.DataOutputStream;
 import java.io.IOException;
-import java.net.ServerSocket;
-import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -57,7 +57,9 @@ public class topLevel {
 				}
 			} catch (IOException e) {
 				// TODO Auto-generated catch block
-				e.printStackTrace();
+				peers.remove(i);
+				i--;
+				//e.printStackTrace();
 			}
 		}
 	}

@@ -1,21 +1,22 @@
+package bitTorrentClient;
+
 import java.net.InetAddress;
-import java.net.Socket;
 
 
-public class Peer {
+class Peer {
 	private int speedValue;
 	private InetAddress ipAddress;
-	public Peer(int speed, InetAddress ip){
+	Peer(int speed, InetAddress ip){
 		speedValue = speed;
 		ipAddress = ip;
 	}
-	public int getSpeed(){
+	int getSpeed(){
 		return speedValue;
 	}
-	public InetAddress getAddress(){
+	InetAddress getAddress(){
 		return ipAddress;
 	}
-	public void setSpeed(int speed){
+	void setSpeed(int speed){
 		speedValue = speed;
 	}
 }

@@ -1,9 +1,13 @@
-import java.net.*;
-import java.util.*;
+package bitTorrentClient;
+
+import java.net.InetAddress;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
 public class ClientPeer extends Peer {
 	private List<Peer> top4Peers;
-	private ArrayList<Integer> currFile;
+	private List<Integer> currFile;
 	private int thisPeerSpeed;
 	private InetAddress thisPeerAddr;
 
@@ -12,7 +16,7 @@ public class ClientPeer extends Peer {
 		thisPeerSpeed = p.getSpeed();
 		thisPeerAddr = p.getAddress();
 		top4Peers = new ArrayList<Peer>();
-		currFile = (ArrayList<Integer>) Collections.synchronizedList(new ArrayList<Integer>());
+		currFile = Collections.synchronizedList(new ArrayList<Integer>());
 	}
 
 	public void setTop4Peers(List<Peer> allPeers) {
@@ -52,7 +56,7 @@ public class ClientPeer extends Peer {
 		return top4Peers;
 	}
 
-	public ArrayList<Integer> getFileIndicesAlreadyDLed() {
+	public List<Integer> getFileIndicesAlreadyDLed() {
 		return currFile; 
 	}
 }
